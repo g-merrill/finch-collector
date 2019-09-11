@@ -49,7 +49,11 @@ class ToyCreate(CreateView):
     model = Toy
     fields = '__all__'
 
-class ToyIndex(ListView):
+class ToyList(ListView):
     model = Toy
     context_object_name = 'toys'
     template_name = 'toys/index.html'
+
+class ToyDetail(DetailView):
+    model = Toy
+    template_name = 'toys/show.html'
