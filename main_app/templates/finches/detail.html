@@ -48,13 +48,19 @@
     <div class="col s6">
         <h3>{{ finch.name }}'s Toys</h3>
         {% for toy in finch.toys.all %}
-            <div class="card">
+        <div class="card">
             <div class="card-content">
                 <span class="card-title">
                 A <span style="color: {{ toy.color }}">{{ toy.color }}</span> {{ toy.name }}
                 </span>
             </div>
+            <div class="card-action">
+                <form action="{% url 'unassoc_toy' finch.id toy.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn">Delete</button>
+                </form>
             </div>
+        </div>
         {% empty %}
         <h5>No Toys :(</h5>
         {% endfor %}
