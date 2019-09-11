@@ -28,14 +28,17 @@ def finches_detail(request, finch_id):
 class FinchCreate(CreateView):
     model = Finch
     fields = '__all__'
+    template_name = 'finches/form.html'
 
 class FinchUpdate(UpdateView):
     model = Finch
     fields = ['species', 'description', 'age']
+    template_name = 'finches/form.html'
 
 class FinchDelete(DeleteView):
     model = Finch
     success_url = '/finches/'
+    template_name = 'finches/confirm_delete.html'
 
 def add_feeding(request, finch_id):
     form = FeedingForm(request.POST)
@@ -48,6 +51,7 @@ def add_feeding(request, finch_id):
 class ToyCreate(CreateView):
     model = Toy
     fields = '__all__'
+    template_name = 'toys/form.html'
 
 class ToyList(ListView):
     model = Toy
@@ -57,3 +61,13 @@ class ToyList(ListView):
 class ToyDetail(DetailView):
     model = Toy
     template_name = 'toys/show.html'
+
+class ToyUpdate(UpdateView):
+    model = Toy
+    fields = ['color']
+    template_name = 'toys/form.html'
+
+class ToyDelete(DeleteView):
+    model = Toy
+    success_url = '/toys/'
+    template_name = 'toys/confirm_delete.html'

@@ -13,4 +13,6 @@ urlpatterns = [
     path('toys/create/', views.ToyCreate.as_view(), name='toy_create'),
     path('toys/', views.ToyList.as_view(), name='toy_list'),
     path('toys/<int:pk>/', views.ToyDetail.as_view(), name='toy_detail'),
+    path('toys/<int:pk>/update/', views.ToyUpdate.as_view(), name='toy_update'),
+    path('toys/<int:pk>/delete/', views.ToyDelete.as_view(), name='toy_delete'),
 ]

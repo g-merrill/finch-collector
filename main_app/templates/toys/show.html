@@ -9,6 +9,10 @@
                 <span class="card-title">{{ toy.name }}</span>
                 <p>Color: <span style="color: {{ toy.color }}">{{ toy.color }}</span></p>
             </div>
+            <div class="card-action">
+                <a href="{% url 'toy_update' toy.id %}">Edit</a>
+                <a href="{% url 'toy_delete' toy.id %}">Delete</a>
+            </div>
         </div>
     </div>
 </div>
